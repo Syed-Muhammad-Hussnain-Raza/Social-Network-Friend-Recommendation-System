@@ -36,8 +36,8 @@ The system follows a **client-server** architecture with the following component
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/username/repository.git
-   cd repository
+   git clone https://github.com/Syed-Muhammad-Hussnain-Raza/Social-Network-Friend-Recommendation-System.git
+   cd Social-Network-Friend-Recommendation-System
    ```
 2. **Setup MySQL Database:**
    
@@ -53,7 +53,8 @@ The system follows a **client-server** architecture with the following component
 - Enhance the post system with like and comment features.
 - Integrate with a real-time notification system for new friend requests or posts.
 
-## License
+## License 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contributors
 * ***Syed Muhammad Hussnain Raza***
