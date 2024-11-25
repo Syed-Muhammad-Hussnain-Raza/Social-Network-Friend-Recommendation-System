@@ -1,0 +1,6 @@
+.usernameTextField:focused {
+    -fx-effect: dropshadow(gaussian, #39ff14, 10, 0.5, 0, 0); /* Neon green glow */
+    -fx-border-color: #39ff14;  /* Optional neon border */
+    -fx-border-width: 2px;      /* Border thickness */
+    -fx-background-color: black;
+}
