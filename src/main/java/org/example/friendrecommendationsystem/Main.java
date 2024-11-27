@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/LoginForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("Login Form");
@@ -20,6 +20,7 @@ public class Main extends Application {
 
     // Main function:
     public static void main(String[] args) {
+        // It is the first screen of our application.
         launch();
     }
 }
