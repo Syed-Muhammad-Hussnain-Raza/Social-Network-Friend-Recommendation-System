@@ -48,6 +48,7 @@ public class LoginController {
             Stage currentStage = ( Stage ) loginButton.getScene().getWindow();
             SwitchScene.changeScene(currentStage, "/views/DashboardForm.fxml", "Dashboard Form");
         }
+        System.out.println("Login successfully");
     }
 
     private void handleRegister() {
