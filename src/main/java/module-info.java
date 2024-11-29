@@ -1,6 +1,7 @@
 module org.example.friendrecommendationsystem {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens org.example.friendrecommendationsystem to javafx.fxml;
