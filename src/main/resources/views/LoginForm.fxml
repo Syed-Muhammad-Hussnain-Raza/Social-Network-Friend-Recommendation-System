@@ -21,29 +21,30 @@
                   <Font name="Cascadia Mono Regular" size="37.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameField" layoutX="57.0" layoutY="317.0" prefHeight="35.0" prefWidth="290.0" promptText="👤 Type your username" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-padding: 9px;">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </TextField>
-            <PasswordField fx:id="passwordField" layoutX="57.0" layoutY="398.0" prefHeight="37.0" prefWidth="290.0" promptText="🔑 Type your password" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-padding: 9px;">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font></PasswordField>
             <Label layoutX="57.0" layoutY="282.0" prefHeight="34.0" prefWidth="139.0" text="Username">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
+            <TextField fx:id="usernameField" layoutX="57.0" layoutY="317.0" prefHeight="35.0" prefWidth="290.0" promptText="👤 Type your username" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-padding: 9px;">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </TextField>
             <Label layoutX="57.0" layoutY="367.0" prefHeight="25.0" prefWidth="139.0" text="Password">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="loginButton" defaultButton="true" disable="true" layoutX="205.0" layoutY="507.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="139.0" style="-fx-background-radius: 5px; -fx-background-color: #4169E1; -fx-text-fill: white;" text="Login">
+            <PasswordField fx:id="passwordField" layoutX="57.0" layoutY="398.0" prefHeight="37.0" prefWidth="290.0" promptText="🔑 Type your password" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-padding: 9px;">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></PasswordField>
+            <Button id="button" fx:id="forgotPasswordField" layoutX="196.0" layoutY="442.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: transparent; -fx-font-weight: bold; -fx-font-size: 15px;" text="Forget Password?">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+            </Button>
             <CheckBox fx:id="captchaBox" layoutX="57.0" layoutY="507.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="139.0" text="I am not a robot 🤖">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -52,6 +53,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </CheckBox>
+            <Button fx:id="loginButton" defaultButton="true" disable="true" layoutX="205.0" layoutY="507.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="139.0" style="-fx-background-radius: 5px; -fx-background-color: #4169E1; -fx-text-fill: white;" text="Login">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Label layoutX="57.0" layoutY="571.0" prefHeight="25.0" prefWidth="152.0" text="Don't have an account ?">
                <font>
                   <Font name="Franklin Gothic Demi Cond" size="16.0" />
@@ -65,10 +70,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="button" fx:id="forgotPasswordField" layoutX="196.0" layoutY="442.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: transparent; -fx-font-weight: bold; -fx-font-size: 15px;" text="Forget Password?">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="656.0" prefWidth="513.0" style="-fx-background-image: url('file:/D:/resources/23747522.jpg'); -fx-background-size: stretch; -fx-background-position: center; -fx-background-repeat: no-repeat;" />
   </items>
