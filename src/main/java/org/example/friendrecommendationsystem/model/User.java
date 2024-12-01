@@ -1,17 +1,14 @@
 package org.example.friendrecommendationsystem.model;
 
+import java.time.LocalDate;
+
 public class User {
     private int userId;
-    private String  username, password, gender, dob, address, email, aboutMe;
-
-    // Basic Constructor:
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
+    private String  username, password, gender, address, email, aboutMe;
+    private LocalDate dob;
 
     // Full Constructor:
-    public User(String username, String password, String gender, String dob, String address, String email, String aboutMe) {
+    public User(String username, String password, String gender, LocalDate dob, String address, String email, String aboutMe) {
         this.username = username;
         this.password = password;
         this.gender = gender;
@@ -45,11 +42,11 @@ public class User {
         this.gender = gender;
     }
 
-    public String getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
