@@ -48,6 +48,7 @@ public class RegistrationController {
 
     @FXML
     public void initialize() {
+        // Initialize gender combo-box
         genderBox.getItems().addAll("Male", "Female", "Other");
 
         // Listeners are Here:
@@ -59,14 +60,18 @@ public class RegistrationController {
     private void toggleSubmitButton() {
         boolean isAllFieldsFilled = !nameField.getText().isEmpty() &&
                 !passwordField.getText().isEmpty() &&
-                captchaBox.isSelected();
+                captchaBox.isSelected() &&
+                genderBox.getValue() != null &&
+                dobPicker.getValue() != null &&
+                !addressField.getText().isEmpty() &&
+                !aboutMe.getText().isEmpty();
 
         submitButton.setDisable(!isAllFieldsFilled);
     }
 
     @FXML
     private void handleSignInButton() throws IOException {
-        // Load the Registration form
+        // Navigate to Login form
         Stage currentStage = ( Stage ) signInButton.getScene().getWindow();
         SwitchScene.changeScene(currentStage, "/views/LoginForm.fxml", "Login Form");
     }
@@ -76,24 +81,26 @@ public class RegistrationController {
         String username = nameField.getText();
         String password = passwordField.getText();
         String gender = genderBox.getValue();
-        String dob = dobPicker.getValue() != null ? dobPicker.getValue().toString() : null;
         String address = addressField.getText();
         String about = aboutMe.getText();
 
-        if (username.isEmpty() || password.isEmpty() || gender == null
-                || dob == null || address.isEmpty() || about.isEmpty()) {
+        java.time.LocalDate dobLocalDate = dobPicker.getValue();
+        java.sql.Date dob = (dobLocalDate != null) ? java.sql.Date.valueOf(dobLocalDate) : null;
+
+        if (username.isEmpty() || password.isEmpty() || gender == null || dob == null
+                || address.isEmpty() || about.isEmpty()) {
             System.out.println("All fields are required!");
             return;
         }
 
-        String insertQuery = "INSERT INTO users(username, password, dob, gender, address, email) VALUE(?, ?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO users(username, password, gender, dob, address, about_me) VALUE(?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = new DatabaseConnection().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
-            preparedStatement.setString(3, dob);
-            preparedStatement.setString(4, gender);
+            preparedStatement.setString(3, gender);
+            preparedStatement.setDate(4, dob);
             preparedStatement.setString(5, address);
             preparedStatement.setString(6, about);
 
