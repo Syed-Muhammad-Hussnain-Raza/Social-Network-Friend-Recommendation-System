@@ -53,7 +53,7 @@
             <Font name="Corbel Bold" size="32.0" />
          </font>
       </Label>
-      <Label layoutX="148.0" layoutY="165.0" prefHeight="28.0" prefWidth="78.0" text="Name">
+      <Label layoutX="148.0" layoutY="165.0" prefHeight="28.0" prefWidth="78.0" text="Username">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
