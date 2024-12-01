@@ -16,33 +16,4 @@ public class DatabaseConnection {
             return null;
         }
     }
-
-    public static void main(String[] args) {
-        DatabaseConnection databaseConnection = new DatabaseConnection();
-        Connection connection = databaseConnection.getConnection();
-
-        if (connection != null) {
-            try {
-                Statement statement =connection.createStatement();
-
-                String query = "SELECT * FROM users";
-                ResultSet resultSet =statement.executeQuery(query);
-                while (resultSet.next()) {
-                    System.out.println("ID: " + resultSet.getInt("user_id"));
-                    System.out.println("Username: " + resultSet.getString("username"));
-                    System.out.println("Email: " + resultSet.getString("email"));
-                    System.out.println("Phone: " + resultSet.getString("phone"));
-                    System.out.println("-------------------------");
-                }
-
-                resultSet.close();
-                statement.close();
-                connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("Failed to connect to the database.");
-        }
-    }
 }
