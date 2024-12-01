@@ -46,44 +46,65 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="725.0" style="-fx-background-color: linear-gradient(to bottom, #81D4FA, #FFFFFF);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.friendrecommendationsystem.controllers.RegistrationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="861.0" style="-fx-background-color: linear-gradient(to bottom, #81D4FA, #FFFFFF);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.friendrecommendationsystem.controllers.RegistrationController">
    <children>
-      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="131.0" layoutY="63.0" lineSpacing="1.5" prefHeight="58.0" prefWidth="490.0" style="-fx-border-color: transparent transparent skyblue transparent; -fx-border-width: 0 0 1 0; -fx-text-fill: #FFFFFF;" text="Registration Form">
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="63.0" lineSpacing="1.5" prefHeight="58.0" prefWidth="490.0" style="-fx-border-color: transparent transparent skyblue transparent; -fx-border-width: 0 0 1 0; -fx-text-fill: #FFFFFF;" text="User Registration Form">
          <font>
             <Font name="Corbel Bold" size="32.0" />
          </font>
       </Label>
-      <Label layoutX="152.0" layoutY="164.0" prefHeight="28.0" prefWidth="78.0" text="Name" />
-      <Label layoutX="430.0" layoutY="252.0" prefHeight="28.0" prefWidth="85.0" text="Date Of Birth" />
-      <Label layoutX="148.0" layoutY="248.0" prefHeight="28.0" prefWidth="43.0" text="Gender" />
-      <Label layoutX="146.0" layoutY="318.0" text="Address" />
-      <Label layoutX="430.0" layoutY="170.0" prefHeight="17.0" prefWidth="78.0" text="Password" />
-      <TextField fx:id="nameField" layoutX="147.0" layoutY="192.0" prefHeight="25.0" prefWidth="205.0" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 2);" />
-      <TextField fx:id="addressField" layoutX="204.0" layoutY="314.0" prefHeight="25.0" prefWidth="428.0" />
-      <PasswordField fx:id="passwordField" layoutX="430.0" layoutY="192.0" prefHeight="25.0" prefWidth="205.0" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 2);" />
-      <DatePicker fx:id="dobPicker" layoutX="523.0" layoutY="254.0" prefHeight="25.0" prefWidth="112.0" />
-      <ComboBox fx:id="genderBox" layoutX="200.0" layoutY="252.0" prefHeight="25.0" prefWidth="98.0" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 2);" visibleRowCount="2">
+      <Label layoutX="148.0" layoutY="165.0" prefHeight="28.0" prefWidth="78.0" text="Name">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="430.0" layoutY="252.0" prefHeight="28.0" prefWidth="92.0" text="Date Of Birth">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="148.0" layoutY="248.0" prefHeight="28.0" prefWidth="66.0" text="Gender">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="146.0" layoutY="318.0" text="Address">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="436.0" layoutY="167.0" prefHeight="17.0" prefWidth="78.0" text="Password">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <TextField fx:id="nameField" layoutX="147.0" layoutY="192.0" prefHeight="30.0" prefWidth="224.0" promptText="👤 Type your username" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 2);" />
+      <PasswordField fx:id="passwordField" layoutX="436.0" layoutY="189.0" prefHeight="30.0" prefWidth="224.0" promptText="🔑 Type your password" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 2);" />
+      <ComboBox fx:id="genderBox" layoutX="210.0" layoutY="247.0" prefHeight="30.0" prefWidth="98.0" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 2);" visibleRowCount="2">
          <effect>
             <Glow />
          </effect>
       </ComboBox>
-      <TextArea fx:id="aboutMe" layoutX="238.0" layoutY="362.0" prefHeight="46.0" prefWidth="396.0" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 2); -fx-background-radius: 5;" wrapText="true" />
-      <Button fx:id="submitButton" defaultButton="true" disable="true" layoutX="354.0" layoutY="440.0" lineSpacing="1.5" mnemonicParsing="false" prefHeight="39.0" prefWidth="280.0" style="-fx-background-radius: 4; -fx-font-weight: bold;" text="Submit" underline="true" />
+      <DatePicker fx:id="dobPicker" layoutX="523.0" layoutY="249.0" prefHeight="30.0" prefWidth="137.0" />
+      <TextField fx:id="addressField" layoutX="214.0" layoutY="314.0" prefHeight="30.0" prefWidth="446.0" />
+      <TextArea fx:id="aboutMe" layoutX="238.0" layoutY="362.0" prefHeight="46.0" prefWidth="421.0" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 2); -fx-background-radius: 5;" wrapText="true" />
+      <CheckBox fx:id="captchaBox" layoutX="140.0" layoutY="439.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="177.0" text="I am not a robot 🤖">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></CheckBox>
+      <Button fx:id="submitButton" defaultButton="true" disable="true" layoutX="382.0" layoutY="439.0" lineSpacing="1.5" mnemonicParsing="false" onAction="#handleSubmitButton" prefHeight="39.0" prefWidth="280.0" style="-fx-background-radius: 4; -fx-font-weight: bold;" text="Submit" underline="true">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
       <Label layoutX="148.0" layoutY="362.0" prefHeight="46.0" prefWidth="78.0" text="About Me" wrapText="true">
          <font>
             <Font name="Elephant" size="15.0" />
          </font>
       </Label>
-      <CheckBox fx:id="captchaBox" layoutX="140.0" layoutY="450.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="177.0" text="I am not a robot 🤖" />
       <Group />
-      <Label layoutX="226.0" layoutY="507.0" prefHeight="18.0" prefWidth="177.0" text="Already have an account ? ">
+      <Label layoutX="140.0" layoutY="525.0" prefHeight="32.0" prefWidth="280.0" text="Already have an account ? ">
          <font>
-            <Font name="System Bold Italic" size="12.0" />
+            <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="signInButton" alignment="CENTER" layoutX="376.0" layoutY="501.0" mnemonicParsing="false" onAction="#handleSignInButton" style="-fx-background-color: none; -fx-text-fill: black; -fx-font-weight: bold;" text="Sign In" textAlignment="CENTER" underline="true">
+      <Button fx:id="signInButton" alignment="CENTER" layoutX="400.0" layoutY="517.0" mnemonicParsing="false" onAction="#handleSignInButton" prefHeight="49.0" prefWidth="98.0" style="-fx-background-color: none; -fx-text-fill: black; -fx-font-weight: bold;" text="Sign In" textAlignment="CENTER" underline="true">
          <font>
-            <Font name="Dubai Bold" size="12.0" />
+            <Font name="Dubai Bold" size="20.0" />
          </font>
       </Button>
    </children>
