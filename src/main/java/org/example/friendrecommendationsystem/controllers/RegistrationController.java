@@ -10,7 +10,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.friendrecommendationsystem.database.DatabaseConnection;
-import org.example.friendrecommendationsystem.utilities.SwitchScene;
+import org.example.friendrecommendationsystem.model.FriendManager;
+import org.example.friendrecommendationsystem.utilities.Utils;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -73,7 +74,7 @@ public class RegistrationController {
     private void handleSignInButton() throws IOException {
         // Navigate to Login form
         Stage currentStage = ( Stage ) signInButton.getScene().getWindow();
-        SwitchScene.changeScene(currentStage, "/views/LoginForm.fxml", "Login Form");
+        Utils.changeScene(currentStage, "/views/LoginForm.fxml", "Login Form");
     }
 
     @FXML
@@ -107,6 +108,7 @@ public class RegistrationController {
             int rowsInserted = preparedStatement.executeUpdate();
             if (rowsInserted > 0) {
                 System.out.println("Registration successful!");
+//                FriendManager.adjacencyList.put()
                 handleSignInButton();
             } else {
                 System.out.println("Failed to register.");
