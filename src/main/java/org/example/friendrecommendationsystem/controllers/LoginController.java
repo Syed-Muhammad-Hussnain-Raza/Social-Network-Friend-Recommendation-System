@@ -6,7 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.example.friendrecommendationsystem.utilities.SwitchScene;
+import org.example.friendrecommendationsystem.database.Database;
+import org.example.friendrecommendationsystem.model.User;
+import org.example.friendrecommendationsystem.utilities.Utils;
 
 import java.io.IOException;
 
@@ -30,6 +32,8 @@ public class LoginController {
     @FXML
     private TextField usernameField;
 
+    public static User currentUser;
+
     public void initialize() {
         loginButton.setOnAction(event -> handleLogin());
         registerButton.setOnAction(event -> handleRegister());
@@ -43,12 +47,27 @@ public class LoginController {
         boolean isCaptchaChecked = captchaBox.isSelected();
 
         if (username.isEmpty() || password.isEmpty() || !isCaptchaChecked) {
-            showAlert("Error", "All fields must be filled, and CAPTCHA must be checked!");
-        } else {
-            Stage currentStage = ( Stage ) loginButton.getScene().getWindow();
-            SwitchScene.changeScene(currentStage, "/views/DashboardForm.fxml", "Dashboard Form");
+            Utils.showAlert("Error", "All fields must be filled, and CAPTCHA must be checked!");
+            usernameField.setText("");
+            passwordField.setText("");
+            captchaBox.setSelected(false);
+            loginButton.setDisable(true);
+            return;
         }
-        System.out.println("Login successfully");
+
+        if (Database.isValidLogin(username, password)) {
+//            currentUser = new User(username, password);
+
+            Stage currentStage = ( Stage ) loginButton.getScene().getWindow();
+            Utils.changeScene(currentStage, "/views/DashboardForm.fxml", "Dashboard Form");
+            System.out.println("Login successfully");
+        } else {
+            Utils.showAlert("Error", "Incorrect username or password!");
+            usernameField.setText("");
+            passwordField.setText("");
+            captchaBox.setSelected(false);
+            loginButton.setDisable(true);
+        }
     }
 
     private void handleRegister() {
@@ -58,7 +77,7 @@ public class LoginController {
             Parent registrationRoot = loader.load();
 
             // Get the current stage and set the new scene
-            Stage stage = (Stage) registerButton.getScene().getWindow();
+            Stage stage = ( Stage ) registerButton.getScene().getWindow();
             Scene registrationScene = new Scene(registrationRoot);
             stage.setScene(registrationScene);
 
@@ -81,13 +100,5 @@ public class LoginController {
         } else {
             loginButton.setDisable(true);
         }
-    }
-
-    // Helper method:
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 }
