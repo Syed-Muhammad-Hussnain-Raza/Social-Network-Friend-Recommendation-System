@@ -58,4 +58,14 @@ public class FriendRecommendationSystem {
         int userIndex = users.indexOf(user);
         System.out.println(user.getUsername() + "'s friends: " + friends.get(userIndex));
     }
+
+    public static void main(String[] args) {
+        FriendRecommendationSystem system = new FriendRecommendationSystem();
+        User user1 = new User(1, "user1", "pass1");
+        User user2 = new User(2, "user2", "pass2");
+        User user3 = new User(3, "user3", "pass3");
+        User user4 = new User(4, "user4", "pass4");
+        User user5 = new User(5, "user5", "pass5");
+
+    }
 }
