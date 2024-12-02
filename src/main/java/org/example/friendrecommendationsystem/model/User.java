@@ -4,8 +4,15 @@ import java.time.LocalDate;
 
 public class User {
     private int userId;
-    private String  username, password, gender, address, email, aboutMe;
+    private String  username, password, gender, address, aboutMe;
     private LocalDate dob;
+    private FriendManager friendManager = new FriendManager();
+
+    public User(int userId, String username, String password) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+    }
 
     // Full Constructor:
     public User(String username, String password, String gender, LocalDate dob, String address, String email, String aboutMe) {
@@ -14,12 +21,15 @@ public class User {
         this.gender = gender;
         this.dob = dob;
         this.address = address;
-        this.email = email;
         this.aboutMe = aboutMe;
     }
 
     public String getUsername() {
         return username;
+    }
+
+    public int getUserId() {
+        return userId;
     }
 
     public void setUsername(String username) {
@@ -58,14 +68,6 @@ public class User {
         this.address = address;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getAboutMe() {
         return aboutMe;
     }
@@ -73,4 +75,5 @@ public class User {
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
     }
+
 }
