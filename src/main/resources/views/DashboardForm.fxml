@@ -68,7 +68,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="636.0" prefWidth="315.0" style="-fx-background-color: navy;">
                <children>
-                  <ImageView fitHeight="167.0" fitWidth="200.0" layoutX="74.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="167.0" fitWidth="200.0" layoutX="74.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/user.png" />
                      </image>
@@ -133,18 +133,19 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label fx:id="userMailLabel" layoutX="52.0" layoutY="228.0" prefHeight="25.0" prefWidth="214.0" style="-fx-text-fill: white;" text="syedhussnainraza@gmail.com">
-                     <font>
-                        <Font name="Century" size="14.0" />
-                     </font></Label>
-                  <Label fx:id="usernameLabel" layoutX="52.0" layoutY="201.0" prefHeight="25.0" prefWidth="225.0" style="-fx-text-fill: white;" text="Syed Muhammad Hussnain Raza" wrapText="true">
+                  <Label fx:id="usernameLabel" layoutX="14.0" layoutY="181.0" prefHeight="33.0" prefWidth="225.0" style="-fx-text-fill: white;" text="Syed Muhammad Hussnain Raza" wrapText="true">
                      <font>
                         <Font name="Ebrima Bold" size="14.0" />
                      </font>
                   </Label>
+                  <Label fx:id="aboutLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="214.0" prefHeight="46.0" prefWidth="283.0" text="About Me" textFill="#f5f5f5" wrapText="true">
+                     <font>
+                        <Font name="Yu Gothic UI Regular" size="13.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="779.0" style="-fx-background-image: url('file:/D:/FriendRecommendationSystem/src/main/resources/images/bg2.jpg'); -fx-background-size: cover; -fx-background-repeat: no-repeat; -fx-background-position: center center;" stylesheets="@../styles/style.css" />
+          <AnchorPane fx:id="rightPane" minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="779.0" style="-fx-background-image: url('file:/D:/FriendRecommendationSystem/src/main/resources/images/bg2.jpg'); -fx-background-size: cover; -fx-background-repeat: no-repeat; -fx-background-position: center center;" stylesheets="@../styles/style.css" />
         </items>
       </SplitPane>
    </children>
