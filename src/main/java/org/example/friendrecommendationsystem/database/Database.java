@@ -1,9 +1,9 @@
 package org.example.friendrecommendationsystem.database;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import org.example.friendrecommendationsystem.model.User;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Database {
     public static boolean isValidLogin(String username, String password) {
@@ -48,5 +48,36 @@ public class Database {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static ArrayList<User> getUsersData() {
+        String query = "SELECT * FROM users";
+
+        ArrayList<User> users = new ArrayList<>();
+
+        try (Connection connection = new DatabaseConnection().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                int userId = resultSet.getInt("user_id");
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
+                String gender = resultSet.getString("gender");
+                Date dob = resultSet.getDate("dob");
+                String address = resultSet.getString("address");
+                String aboutMe = resultSet.getString("about_me");
+
+                users.add(new User(userId, username, password, gender, dob, address, aboutMe));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return users;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getUsersData());
     }
 }
