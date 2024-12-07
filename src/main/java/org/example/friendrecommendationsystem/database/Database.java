@@ -77,6 +77,32 @@ public class Database {
         return users;
     }
 
+    public static User getUserByUsernameAndPassword(String username, String password) {
+        String query = "SELECT * FROM users WHERE BINARY username = ? AND BINARY password = ?";
+
+        try (Connection connection = new DatabaseConnection().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setString(1, username);
+            statement.setString(2, password);
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int userId = resultSet.getInt("user_id");
+                String gender = resultSet.getString("gender");
+                Date dob = resultSet.getDate("dob");
+                String address = resultSet.getString("address");
+                String aboutMe = resultSet.getString("about_me");
+
+                return new User(userId, username, password, gender, dob, address, aboutMe);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null; // Return null if no user is found
+    }
+
     public static void main(String[] args) {
         System.out.println(getUsersData());
     }
