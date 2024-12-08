@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -47,25 +48,47 @@ public class Utils {
         alert.showAndWait();
     }
 
-    public static void loadAnchorPaneContent(AnchorPane pane, String fxmlPath) {
+    public static void loadAnchorPaneContent(Pane pane, String fxmlPath) {
         try {
             // Load the FXML content
-            AnchorPane content = FXMLLoader.load(Utils.class.getResource(fxmlPath));
+            Pane content = FXMLLoader.load(Utils.class.getResource(fxmlPath));
 
             // Clear existing children and add new content
             pane.getChildren().setAll(content);
 
-            // Bind the FXML content to fill the entire AnchorPane
-            AnchorPane.setTopAnchor(content, 0.0);
-            AnchorPane.setBottomAnchor(content, 0.0);
-            AnchorPane.setLeftAnchor(content, 0.0);
-            AnchorPane.setRightAnchor(content, 0.0);
+            // If you're dealing with an AnchorPane, bind it to the full size of the pane
+            if (pane instanceof AnchorPane) {
+                AnchorPane.setTopAnchor(content, 0.0);
+                AnchorPane.setBottomAnchor(content, 0.0);
+                AnchorPane.setLeftAnchor(content, 0.0);
+                AnchorPane.setRightAnchor(content, 0.0);
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Failed to load FXML: " + fxmlPath);
         }
     }
+
+//    public static void loadAnchorPaneContent(AnchorPane pane, String fxmlPath) {
+//        try {
+//            // Load the FXML content
+//            AnchorPane content = FXMLLoader.load(Utils.class.getResource(fxmlPath));
+//
+//            // Clear existing children and add new content
+//            pane.getChildren().setAll(content);
+//
+//            // Bind the FXML content to fill the entire AnchorPane
+//            AnchorPane.setTopAnchor(content, 0.0);
+//            AnchorPane.setBottomAnchor(content, 0.0);
+//            AnchorPane.setLeftAnchor(content, 0.0);
+//            AnchorPane.setRightAnchor(content, 0.0);
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            System.out.println("Failed to load FXML: " + fxmlPath);
+//        }
+//    }
 
     public static void clearAnchorPane(AnchorPane pane) {
         if (pane != null)
