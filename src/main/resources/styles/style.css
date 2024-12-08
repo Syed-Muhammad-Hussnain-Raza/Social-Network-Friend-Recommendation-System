@@ -4,3 +4,19 @@
     -fx-border-width: 2px;      /* Border thickness */
     -fx-background-color: black;
 }
+
+.vbox {
+    -fx-background-color: #f4f4f9;
+    -fx-padding: 20px;
+}
+
+.label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.list-view {
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+    -fx-background-color: #ffffff;
+}
