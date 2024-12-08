@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.example.friendrecommendationsystem.database.Database;
 import org.example.friendrecommendationsystem.database.DatabaseConnection;
 import org.example.friendrecommendationsystem.model.FriendManager;
 import org.example.friendrecommendationsystem.utilities.Utils;
@@ -17,6 +18,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import static org.example.friendrecommendationsystem.database.Database.isUsernamePresent;
 
 public class RegistrationController {
 
@@ -91,6 +94,12 @@ public class RegistrationController {
         if (username.isEmpty() || password.isEmpty() || gender == null || dob == null
                 || address.isEmpty() || about.isEmpty()) {
             System.out.println("All fields are required!");
+            return;
+        }
+
+        if (isUsernamePresent(username)) {
+            Utils.showAlert("Error", "User already exists with same name");
+            nameField.setText("");
             return;
         }
 
