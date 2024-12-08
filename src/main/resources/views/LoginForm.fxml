@@ -71,6 +71,6 @@
                </cursor>
             </Button>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="656.0" prefWidth="513.0" style="-fx-background-image: url('file:/D:/resources/23747522.jpg'); -fx-background-size: stretch; -fx-background-position: center; -fx-background-repeat: no-repeat;" />
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="656.0" prefWidth="513.0" style="-fx-background-image: url('file:/D:/FriendRecommendationSystem/src/main/resources/images/23747522.jpg'); -fx-background-size: stretch; -fx-background-position: center; -fx-background-repeat: no-repeat;" />
   </items>
 </SplitPane>
