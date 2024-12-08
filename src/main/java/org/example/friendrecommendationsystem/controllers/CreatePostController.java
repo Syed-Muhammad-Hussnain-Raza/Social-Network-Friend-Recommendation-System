@@ -8,6 +8,8 @@ import javafx.scene.layout.AnchorPane;
 import org.example.friendrecommendationsystem.database.Database;
 import org.example.friendrecommendationsystem.utilities.Utils;
 
+import static org.example.friendrecommendationsystem.controllers.LoginController.currentUser;
+
 public class CreatePostController {
 
     @FXML
@@ -37,8 +39,8 @@ public class CreatePostController {
             return;
         }
 
-        int userId = 2; // Example user ID, replace with actual user ID
-        String username = "Hussnain"; // Replace with actual username
+        int userId = currentUser.getUserId();
+        String username = currentUser.getUsername();
 
         boolean success = Database.addPostToDatabase(title, content, userId, username);
 
