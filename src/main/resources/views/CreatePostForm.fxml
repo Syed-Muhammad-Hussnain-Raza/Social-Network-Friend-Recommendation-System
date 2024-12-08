@@ -10,12 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="createPostPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.friendrecommendationsystem.controllers.CreatePostController">
    <children>
       <VBox layoutX="22.0" layoutY="39.0" prefHeight="384.0" prefWidth="688.0">
          <children>
-            <TextField fx:id="postTitle" prefHeight="63.0" prefWidth="571.0" promptText="Add titile" style="-fx-background-color: transparent;; -fx-focus-color: transparent;; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 0);">
+            <TextField fx:id="postTitle" prefHeight="63.0" prefWidth="571.0" promptText="Add titile" style="-fx-background-color: transparent; -fx-focus-color: transparent; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 0); -fx-text-fill: white;">
                <font>
                   <Font name="Book Antiqua Bold" size="24.0" />
                </font>
