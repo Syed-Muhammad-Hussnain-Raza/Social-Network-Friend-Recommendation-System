@@ -14,7 +14,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
-
+        
         stage.setTitle("Login Form");
         stage.setScene(scene);
         stage.show();
