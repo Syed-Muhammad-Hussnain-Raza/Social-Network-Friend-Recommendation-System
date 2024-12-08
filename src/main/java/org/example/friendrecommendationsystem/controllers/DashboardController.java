@@ -1,42 +1,55 @@
 package org.example.friendrecommendationsystem.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.example.friendrecommendationsystem.model.FriendManager;
 import org.example.friendrecommendationsystem.utilities.Utils;
 
+import static org.example.friendrecommendationsystem.controllers.LoginController.currentUser;
+
 public class DashboardController {
+    @FXML
+    private Label usernameLabel, aboutLabel;
 
     @FXML
-    private Button addFriendButton;
+    private Button addFriendButton, displayAllFriendsButton, recommendFriendsButton,
+            createPostsButton, logoutButton, logoutFromMenu;
 
     @FXML
-    private Button createPostsButton;
+    private MenuItem viewProfile, editProfile;
 
     @FXML
-    private Button displayAllFriendsButton;
+    private MenuItem myPosts, friendsPost, allPosts;
 
     @FXML
-    private Button logoutButton;
+    private MenuItem displayAllFriendsMenu, mutualFriendsMenu, recommendedFriendMenu;
 
-    @FXML
-    private Button recommendFriendsButton;
-
-    @FXML
-    private Label userMailLabel;
 
     @FXML
     private AnchorPane rightPane;
 
-    @FXML
-    private Label usernameLabel;
+    private FriendManager friendManager;
 
     public void initialize() {
-        logoutButton.setOnAction(event -> handleLogoutButton());
+        usernameLabel.setText(currentUser.getUsername());
+        aboutLabel.setText(currentUser.getAboutMe());
+        addFriendButton.setOnAction(event -> handleAddFriend());
+        displayAllFriendsButton.setOnAction(actionEvent -> displayFriends());
+        recommendFriendsButton.setOnAction(event -> handleRecommendedFriend());
         createPostsButton.setOnAction(event -> handleCreatePostButton());
-//        usernameLabel.setText(currentUser);
+        logoutButton.setOnAction(event -> handleLogoutButton());
+
+        // Menu
+        logoutFromMenu.setOnAction(event -> handleLogoutButton());
+        displayAllFriendsMenu.setOnAction(actionEvent -> displayFriends());
+        recommendedFriendMenu.setOnAction(event -> handleRecommendedFriend());
+        mutualFriendsMenu.setOnAction(event -> System.out.println("Mutual Button Clicked!"));
+
+        allPosts.setOnAction(event -> handleDisplayAllPosts());
     }
 
     private void handleLogoutButton() {
@@ -46,14 +59,22 @@ public class DashboardController {
     }
 
     private void handleAddFriend() {
-        System.out.println("Logout button clicked");
+        Utils.loadAnchorPaneContent(rightPane, "/views/AddFriendsForm.fxml");
+    }
+
+    private void handleRecommendedFriend() {
+        Utils.loadAnchorPaneContent(rightPane, "/views/RecommendedFriendsForm.fxml");
     }
 
     private void handleCreatePostButton() {
-//        Stage currentStage = (Stage) createPostsButton.getScene().getWindow();
-//        Utils.openNewWindow(currentStage, "/views/CreatePostForm.fxml", "Create Post");
-//        System.out.println("Create Post button clicked");
-
         Utils.loadAnchorPaneContent(rightPane, "/views/CreatePostForm.fxml");
+    }
+
+    private void displayFriends() {
+        Utils.loadAnchorPaneContent(rightPane, "/views/DisplayFriendsForm.fxml");
+    }
+
+    private void handleDisplayAllPosts() {
+        Utils.loadAnchorPaneContent(rightPane, "/views/PostsForm.fxml");
     }
 }
