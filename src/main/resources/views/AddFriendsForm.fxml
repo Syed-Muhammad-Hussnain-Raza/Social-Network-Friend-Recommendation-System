@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="633.0" prefWidth="627.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.friendrecommendationsystem.controllers.AddFriendsController">
+    <VBox layoutX="20" layoutY="20" prefHeight="560.0" prefWidth="574.0" spacing="10">
+        <!-- Section for showing friends -->
+        <HBox spacing="10">
+            <TextField fx:id="searchField" prefHeight="37.0" prefWidth="328.0" promptText="Search by username...">
+            <font>
+               <Font name="Berlin Sans FB" size="15.0" />
+            </font></TextField>
+            <Button fx:id="searchButton" prefHeight="37.0" prefWidth="70.0" text="Search" />
+        </HBox>
+
+        <ListView fx:id="friendsListView" prefHeight="377.0" prefWidth="574.0" />
+
+        <!-- Section for adding a friend -->
+        <HBox spacing="10">
+            <TextField fx:id="addFriendField" prefHeight="34.0" prefWidth="310.0" promptText="Enter friend's username...">
+            <font>
+               <Font name="Bell MT" size="15.0" />
+            </font></TextField>
+            <Button fx:id="addFriendButton" prefHeight="32.0" prefWidth="75.0" text="Add Friend" />
+        </HBox>
+
+        <Button fx:id="refreshButton" prefHeight="32.0" prefWidth="92.0" text="Refresh List" />
+    </VBox>
+</AnchorPane>
