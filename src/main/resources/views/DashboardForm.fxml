@@ -32,14 +32,17 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -47,23 +50,45 @@
    <children>
       <MenuBar layoutX="8.0" layoutY="14.0" prefHeight="33.0" prefWidth="669.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Profile">
+          <Menu mnemonicParsing="false" text="My Profile">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="viewProfile" mnemonicParsing="false" text="View Profile |">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="V" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="editProfile" mnemonicParsing="false" text="Edit Profile   | ">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="E" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Friends">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem fx:id="displayAllFriendsMenu" mnemonicParsing="false" text="All Friends" />
+                  <MenuItem fx:id="mutualFriendsMenu" mnemonicParsing="false" text="Mutual Friends" />
+                  <MenuItem fx:id="recommendedFriendMenu" mnemonicParsing="false" text="Recommended" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Posts">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="myPosts" mnemonicParsing="false" text="My Posts" />
+                  <MenuItem fx:id="friendsPost" mnemonicParsing="false" text="Friend's Post" />
+                  <MenuItem fx:id="allPosts" mnemonicParsing="false" text="All Posts" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
+      <Button fx:id="logoutFromMenu" layoutX="183.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="65.0" style="-fx-background-color: transparent; -fx-text-fill: red; -fx-font-weight: bold; -fx-font-size: 14px;" text="Logout" AnchorPane.leftAnchor="178.0" AnchorPane.topAnchor="-2.0">
+         <font>
+            <Font name="Segoe UI Light" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
       <SplitPane dividerPositions="0.2896174863387978" layoutY="31.0" prefHeight="455.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="636.0" prefWidth="315.0" style="-fx-background-color: navy;">
