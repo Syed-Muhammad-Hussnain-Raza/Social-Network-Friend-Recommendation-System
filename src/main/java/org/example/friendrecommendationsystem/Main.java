@@ -13,6 +13,8 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/LoginForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
+        scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
+
         stage.setTitle("Login Form");
         stage.setScene(scene);
         stage.show();
