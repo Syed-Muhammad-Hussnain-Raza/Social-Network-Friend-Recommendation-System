@@ -3,11 +3,9 @@ package org.example.friendrecommendationsystem.model;
 import java.util.*;
 
 public class FriendManager {
-    // Adjacency list where each user has a list of their friends (using user_id)
-    public static Map<Integer, Set<Integer>> adjacencyList;
+    private static Map<Integer, Set<Integer>> adjacencyList;
 
     public FriendManager() {
-        // Initialize the adjacency list (a map from user_id to set of friends)
         adjacencyList = new HashMap<>();
     }
 
@@ -28,7 +26,7 @@ public class FriendManager {
 
     // Method to remove a friend
     public void removeFriend(int userId, int friendId) {
-        // Remove the friendship from both users' adjacency lists
+        // Remove the friendship from both user's adjacency lists
         if (adjacencyList.containsKey(userId)) {
             adjacencyList.get(userId).remove(friendId);
         }
@@ -72,23 +70,4 @@ public class FriendManager {
             System.out.println("User " + entry.getKey() + " has friends: " + entry.getValue());
         }
     }
-
-    public static void main(String[] args) {
-        FriendManager system = new FriendManager();
-        User user1 = new User(1, "user1", "pass1");
-        User user2 = new User(2, "user2", "pass2");
-        User user3 = new User(3, "user3", "pass3");
-        User user4 = new User(4, "user4", "pass4");
-        User user5 = new User(5, "user5", "pass5");
-
-        system.addFriend(user1.getUserId(), user2.getUserId());
-        system.addFriend(user1.getUserId(), user3.getUserId());
-        system.addFriend(user1.getUserId(), user4.getUserId());
-
-        system.addFriend(user2.getUserId(), user3.getUserId());
-        system.addFriend(user2.getUserId(), user5.getUserId());
-
-        system.displayAllUsersAndFriends();
-    }
 }
-
