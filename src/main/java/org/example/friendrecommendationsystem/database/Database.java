@@ -285,7 +285,7 @@ public class Database {
 
     public static List<Post> getPosts() {
         List<Post> posts = new ArrayList<>();
-        String query = "SELECT * FROM posts ORDER BY post_id DESC"; // Adjust ORDER BY as needed
+        String query = "SELECT * FROM posts ORDER BY created_at ASC"; // Adjust ORDER BY as needed
 
         try (Connection connection = new DatabaseConnection().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
@@ -307,5 +307,25 @@ public class Database {
         return posts;
     }
 
+    // Method check is username present or not
+    public static boolean isUsernamePresent(String username) {
+        boolean isPresent = false;
 
+        String query = "SELECT COUNT(*) FROM users WHERE BINARY username = ?";
+
+        try (Connection connection = new DatabaseConnection().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, username);
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                // If the count is greater than 0, username exists
+                isPresent = resultSet.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return isPresent;
+    }
 }
