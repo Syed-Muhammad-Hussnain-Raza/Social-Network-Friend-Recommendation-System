@@ -56,7 +56,7 @@ public class LoginController {
         }
 
         if (Database.isValidLogin(username, password)) {
-//            currentUser = new User(username, password);
+            currentUser = Database.getUserByUsernameAndPassword(username, password);
 
             Stage currentStage = ( Stage ) loginButton.getScene().getWindow();
             Utils.changeScene(currentStage, "/views/DashboardForm.fxml", "Dashboard Form");
