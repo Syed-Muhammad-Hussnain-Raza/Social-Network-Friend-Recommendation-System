@@ -1,12 +1,11 @@
 package org.example.friendrecommendationsystem.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class User {
     private int userId;
     private String  username, password, gender, address, aboutMe;
-    private LocalDate dob;
-    private FriendManager friendManager = new FriendManager();
+    private Date dob;
 
     public User(int userId, String username, String password) {
         this.userId = userId;
@@ -15,7 +14,8 @@ public class User {
     }
 
     // Full Constructor:
-    public User(String username, String password, String gender, LocalDate dob, String address, String email, String aboutMe) {
+    public User(int userId, String username, String password, String gender, Date dob, String address, String aboutMe) {
+        this.userId = userId;
         this.username = username;
         this.password = password;
         this.gender = gender;
@@ -24,12 +24,16 @@ public class User {
         this.aboutMe = aboutMe;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
     public int getUserId() {
         return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public void setUsername(String username) {
@@ -52,11 +56,11 @@ public class User {
         this.gender = gender;
     }
 
-    public LocalDate getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 
@@ -76,4 +80,16 @@ public class User {
         this.aboutMe = aboutMe;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", gender='" + gender + '\'' +
+                ", address='" + address + '\'' +
+                ", aboutMe='" + aboutMe + '\'' +
+                ", dob=" + dob +
+                "}\n";
+    }
 }
