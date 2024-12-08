@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<AnchorPane style="-fx-background-color: #F8F8F8;" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.friendrecommendationsystem.controllers.DisplayFriendsController">
+   <children>
+      <Label fx:id="titleLabel" alignment="CENTER_LEFT" layoutX="57.0" layoutY="14.0" prefHeight="60.0" prefWidth="529.0" text="Friends List" style="-fx-font-size: 36px; -fx-font-weight: bold;">
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.0" startX="0.0" startY="1.0">
+               <stops>
+                  <Stop offset="0.0" color="#FF6347" />
+                  <Stop offset="1.0" color="#FFA07A" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ListView fx:id="friendsList" layoutX="20.0" layoutY="80.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0.5, 0, 2);" />
+   </children>
+</AnchorPane>
